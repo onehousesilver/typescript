@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 interface ContainerProps {
   bgColor: string;
-  borderColor?: string;
+  borderColor: string;
 }
 
 const Container = styled.div<ContainerProps>`
@@ -16,10 +16,15 @@ const Container = styled.div<ContainerProps>`
 interface CircleProps {
   bgColor: string;
   borderColor?: string;
+  text?: string;
 }
 
-function Circle({ bgColor, borderColor }: CircleProps) {
-  return <Container bgColor={bgColor} borderColor={borderColor} />;
+function Circle({ bgColor, borderColor, text = "디폴드 값" }: CircleProps) {
+  return (
+    <Container bgColor={bgColor} borderColor={borderColor ?? "blue"}>
+      {text}
+    </Container>
+  );
 }
 
 export default Circle;
