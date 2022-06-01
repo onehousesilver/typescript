@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 interface ContainerProps {
@@ -19,12 +20,11 @@ interface CircleProps {
   text?: string;
 }
 
-function Circle({ bgColor, borderColor, text = "디폴드 값" }: CircleProps) {
-  return (
-    <Container bgColor={bgColor} borderColor={borderColor ?? "blue"}>
-      {text}
-    </Container>
-  );
+function Circle({ bgColor, borderColor }: CircleProps) {
+  const [value, setValue] = useState<number | string>(0);
+  setValue(2);
+  setValue("hello");
+  return <Container bgColor={bgColor} borderColor={borderColor ?? "blue"} />;
 }
 
 export default Circle;
